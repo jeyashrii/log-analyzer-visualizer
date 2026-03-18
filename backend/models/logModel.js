@@ -1,14 +1,14 @@
 const mongoose = require("mongoose");
 
 const logSchema = mongoose.Schema({
-  timeStamp: { type: Date, required: true },
+  timestamp: { type: Date, required: true },
   level: { type: String, enum: ["INFO", "WARN", "ERROR"], required: true },
   service: {
     type: String,
     enum: ["auth", "payments", "notifications"],
     required: true,
   },
-  service: {
+  message: {
     type: String,
     required: true,
   },
