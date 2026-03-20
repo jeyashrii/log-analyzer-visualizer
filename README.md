@@ -13,7 +13,7 @@ A log stats API is implemented to return the number of INFO, WARN, and ERROR log
 ![alt text](image.png)
 ![alt text](image-1.png)
 
-<video controls src="logAnalyser.mp4" title="Title"></video>
+https://drive.google.com/file/d/1HeEDg_DsczocxqjAmKefKu1cWm8Q5C7l/view?usp=sharing
 
 ## Run the project
 
