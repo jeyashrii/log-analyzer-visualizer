@@ -8,10 +8,7 @@ The frontend shows the logs in a table with filtering support for log level, ser
 
 A log stats API is implemented to return the number of INFO, WARN, and ERROR logs within the last few seconds, along with total log count and error rate. These stats are displayed in the UI using a bar chart.
 
-# Screenshots and video attachements
-
-![alt text](image.png)
-![alt text](image-1.png)
+# Video attachement
 
 https://drive.google.com/file/d/1HeEDg_DsczocxqjAmKefKu1cWm8Q5C7l/view?usp=sharing
 
