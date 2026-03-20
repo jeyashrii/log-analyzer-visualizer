@@ -16,7 +16,7 @@ const generateLogEntry = () => {
   };
 };
 
-const startLogSimualtion = () => {
+const startLogSimulation = () => {
   setInterval(async () => {
     try {
       const newLog = generateLogEntry();
@@ -25,7 +25,7 @@ const startLogSimualtion = () => {
     } catch (err) {
       console.error("Error generating log:", err.message);
     }
-  }, 5000);
+  }, 1000);
 };
 
-module.exports = { generateLogEntry, startLogSimualtion };
+module.exports = { generateLogEntry, startLogSimulation };

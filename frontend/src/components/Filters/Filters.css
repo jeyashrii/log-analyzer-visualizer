@@ -1,0 +1,28 @@
+.filters-container {
+  margin: 5% 20%;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+.filter-input {
+  padding: 8px 10px;
+  border: 1px solid black;
+  font-size: 14px;
+  border-radius: 10px;
+}
+.filter-select {
+  padding: 6px 8px;
+  border: 1px solid black;
+  font-size: 14px;
+  border-radius: 10px;
+}
+.input-button {
+  padding: 5px;
+  background-color: blue;
+  border-radius: 10px;
+}
+
+.filter-input {
+  min-width: 220px;
+}

@@ -49,7 +49,7 @@ const getLogs = asyncHandler(async (req, res) => {
   const totalLogs = await Log.countDocuments(queryFilter);
   res.status(200).json({
     logs,
-    totaLogs: totalLogs,
+    totalLogs: totalLogs,
     page: currentPage,
     totalPages: Math.ceil(totalLogs / pageSize),
   });

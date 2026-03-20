@@ -1,0 +1,18 @@
+.logs-container {
+  width: 80%;
+  border-collapse: collapse;
+  margin: 15px auto;
+  font-size: 13px;
+}
+.logs-container th,
+.logs-container td {
+  border: 1px solid black;
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.logs-container th {
+  background-color: blue;
+  font-weight: 600;
+}
