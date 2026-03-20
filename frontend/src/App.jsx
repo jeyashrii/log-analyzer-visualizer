@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import LogsTable from "./components/LogsTable/LogsTable.jsx";
 import Filters from "./components/Filters/Filters.jsx";
+import LogStats from "./components/Stats/LogStats.jsx";
 import axios from "axios";
 
 function App() {
@@ -33,7 +34,6 @@ function App() {
     const intervalId = setInterval(() => {
       getLogs();
     }, 5000);
-    console.log("refreshed");
     return () => {
       clearInterval(intervalId);
     };
@@ -41,7 +41,6 @@ function App() {
 
   return (
     <>
-      <h1>Log Analyser & Visualizer</h1>
       <Filters
         selectedLevel={selectedLevel}
         setSelectedLevel={setSelectedLevel}
@@ -53,6 +52,7 @@ function App() {
         setSearchInput={setSearchInput}
       ></Filters>
       <LogsTable logs={logs} isLoading={isLoading}></LogsTable>
+      <LogStats></LogStats>
     </>
   );
 }

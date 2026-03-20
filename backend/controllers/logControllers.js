@@ -1,6 +1,7 @@
 const asyncHandler = require("express-async-handler");
 const Log = require("../models/logModel");
-//GET
+
+//GET logs
 
 const getLogs = asyncHandler(async (req, res) => {
   const {
@@ -54,4 +55,48 @@ const getLogs = asyncHandler(async (req, res) => {
     totalPages: Math.ceil(totalLogs / pageSize),
   });
 });
-module.exports = { getLogs };
+
+//GET log stats
+
+const getLogStats = asyncHandler(async (req, res) => {
+  const seconds = Number(req.query.seconds) || 50;
+  const startTime = new Date(Date.now() - seconds * 1000);
+
+  const stats = await Log.aggregate([
+    {
+      $match: {
+        timestamp: { $gte: startTime },
+      },
+    },
+    {
+      $group: {
+        _id: "$level",
+        count: { $sum: 1 },
+      },
+    },
+  ]);
+
+  let infoCount = 0;
+  let warnCount = 0;
+  let errorCount = 0;
+  stats.forEach((item) => {
+    if (item._id === "INFO") infoCount = item.count;
+    if (item._id === "WARN") warnCount = item.count;
+    if (item._id === "ERROR") errorCount = item.count;
+  });
+  const totalLogs = infoCount + warnCount + errorCount;
+  const errorRate =
+    totalLogs === 0 ? 0 : ((errorCount / totalLogs) * 100).toFixed(2);
+
+  res.status(200).json({
+    windowInSeconds: seconds,
+    counts: {
+      INFO: infoCount,
+      WARN: warnCount,
+      ERROR: errorCount,
+    },
+    totalLogs,
+    errorRate: Number(errorRate),
+  });
+});
+module.exports = { getLogs, getLogStats };

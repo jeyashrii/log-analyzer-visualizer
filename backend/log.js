@@ -1,5 +1,6 @@
 const { levels, services, messages } = require("./constants.js");
 const Log = require("./models/logModel");
+
 const getRandomValue = (arr) => {
   return arr[Math.floor(Math.random() * arr.length)];
 };
